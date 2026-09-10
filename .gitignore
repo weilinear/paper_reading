@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testing & Caches
+.pytest_cache/
+.coverage
+htmlcov/
+swift-cache/
+.cache/
+
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/
+
+# Large temporary files
+*.png
+test_resnet.pdf
+resnet_page2.png
