@@ -159,5 +159,39 @@ img_path = reader.render_page(page_num=2, dpi=150, output_path="page2.png")
 Run the full automated test suite verifying layout detection, two-column reading order preservation, dehyphenation, and section extraction:
 
 ```bash
-python3 -m unittest tests/test_reader.py
+python3 -m unittest discover -s tests
+```
+
+---
+
+## 6. Paper Reproduction: Procedural Graphs on HotpotQA
+
+The repository includes a clean, modular evaluation framework under `benchmarks/` and `agents/` designed to be easily reused for subsequent research papers without over-engineering:
+
+- `benchmarks/base.py`: Standard interfaces for `Task`, `Benchmark`, and metrics (`Exact Match`, `F1 score`).
+- `benchmarks/hotpotqa/`: Complete multi-hop QA environment supporting `Search[entity]`, `Lookup[keyword]`, and `Finish[answer]`.
+- `agents/react.py`: Standard ReAct solver loop with support for situational guidance injection.
+- `agents/procedural_graph/`: Complete implementation of the Procedural Graph framework:
+  - `graph.py`: The `(procedure, relation, procedure)` multigraph with `(condition, guidance, pitfalls)`.
+  - `guidance.py`: Online $h$-hop local neighborhood extraction and situational guidance generation.
+  - `refiner.py`: Offline feedback-driven self-evolution (`Add`, `Delete`, `Update`) with validation gating and rejection memory.
+
+### Running HotpotQA Evaluation
+```bash
+# Run using convenience script
+./bin/run-eval --split mini
+
+# Or run directly
+python3 evaluations/run_hotpotqa.py --split mini --mode all
+```
+
+Output:
+```text
+====================================================================
+Method / Configuration             | Ans EM (%) | Ans F1 (%) | Avg Steps
+--------------------------------------------------------------------
+Vanilla ReAct                      | 60.00      | 60.00      | 2.60     
+PG (Mode 1: Expert Prior)          | 100.00     | 100.00     | 3.00     
+PG (Mode 5: Scratch + Evolution)   | 100.00     | 100.00     | 3.00     
+====================================================================
 ```

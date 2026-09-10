@@ -1,0 +1,47 @@
+[
+  {
+    "id": "hotpot_001",
+    "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+    "gold_answer": "Chief of Protocol of the United States",
+    "passages": {
+      "Kiss and Tell (1945 film)": "Kiss and Tell is a 1945 American comedy film starring Shirley Temple as Corliss Archer. In the film, two teenage friends Corliss and Mildred cause confusion when romance and rumors spread.",
+      "Shirley Temple": "Shirley Temple Black was an American actress, singer, dancer, and diplomat. As an adult, she was named United States Ambassador to Ghana and to Czechoslovakia, and served as Chief of Protocol of the United States from 1976 to 1977."
+    }
+  },
+  {
+    "id": "hotpot_002",
+    "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+    "gold_answer": "yes",
+    "passages": {
+      "Scott Derrickson": "Scott Derrickson is an American director, screenwriter and producer. He lives in Los Angeles, California, and directed Doctor Strange.",
+      "Ed Wood": "Edward Davis Wood Jr. was an American filmmaker, actor, and pulp novelist who died in 1978."
+    }
+  },
+  {
+    "id": "hotpot_003",
+    "question": "The director of the romantic comedy 'Big Stone Gap' is based in what city?",
+    "gold_answer": "New York City",
+    "passages": {
+      "Big Stone Gap (film)": "Big Stone Gap is a 2014 American romantic comedy film written and directed by Adriana Trigiani, starring Ashley Judd, Patrick Wilson, and Whoopi Goldberg.",
+      "Adriana Trigiani": "Adriana Trigiani is an Italian-American author, television writer, and director based in New York City."
+    }
+  },
+  {
+    "id": "hotpot_004",
+    "question": "What is the capital of the country where the 2014 Winter Olympics took place?",
+    "gold_answer": "Moscow",
+    "passages": {
+      "2014 Winter Olympics": "The 2014 Winter Olympics, officially known as the XXII Olympic Winter Games, was an international winter multi-sport event held from 7 to 23 February 2014 in Sochi, Russia.",
+      "Russia": "Russia is a transcontinental country spanning Eastern Europe and Northern Asia. Its capital and largest city is Moscow."
+    }
+  },
+  {
+    "id": "hotpot_005",
+    "question": "Which magazine was started first, Arthur's Magazine or First for Women?",
+    "gold_answer": "Arthur's Magazine",
+    "passages": {
+      "Arthur's Magazine": "Arthur's Magazine (1844–1846) was an American 19th-century monthly literary magazine founded by T.S. Arthur in Philadelphia.",
+      "First for Women": "First for Women is a woman's magazine published by Heinrich Bauer North America started in 1989."
+    }
+  }
+]
