@@ -1,0 +1,89 @@
+#!/usr/bin/env python3
+"""
+CLI helper to list and open Google Colab demo notebooks.
+"""
+
+from __future__ import annotations
+
+import argparse
+import subprocess
+import sys
+from pathlib import Path
+
+REPO_URL = "https://github.com/weilinear/paper_reading"
+COLAB_BASE = "https://colab.research.google.com/github/weilinear/paper_reading/blob/main"
+
+NOTEBOOKS = [
+    {
+        "id": "1",
+        "name": "01_paper_reader_demo.ipynb",
+        "title": "Layout-Aware Two-Column PDF Reader (Poppler)",
+        "description": "Demonstrates reading multi-column academic papers, outline extraction, and visual figure rendering.",
+    },
+    {
+        "id": "2",
+        "name": "02_hotpotqa_procedural_graph.ipynb",
+        "title": "Procedural Graphs on HotpotQA Benchmark",
+        "description": "Compares Vanilla ReAct vs Procedural Graph (Mode 1 Expert vs Mode 5 Scratch) on multi-hop QA.",
+    },
+    {
+        "id": "3",
+        "name": "03_memory_bank_demo.ipynb",
+        "title": "MemoryBank & Ebbinghaus Forgetting Curve Simulation",
+        "description": "Visualizes Ebbinghaus retention curves (R = exp(-t/S)), spacing reinforcement, and AI companion prompts.",
+    },
+]
+
+
+def list_demos():
+    print("\n" + "=" * 76)
+    print(" GOOGLE COLAB INTERACTIVE DEMOS (weilinear/paper_reading)")
+    print("=" * 76)
+    for nb in NOTEBOOKS:
+        url = f"{COLAB_BASE}/notebooks/{nb['name']}"
+        print(f"\n[{nb['id']}] {nb['title']}")
+        print(f"    File: notebooks/{nb['name']}")
+        print(f"    Info: {nb['description']}")
+        print(f"    Colab URL: {url}")
+    print("\n" + "=" * 76 + "\n")
+
+
+def open_demo(demo_id: str):
+    target = next((nb for nb in NOTEBOOKS if nb["id"] == demo_id or nb["name"] == demo_id), None)
+    if not target:
+        print(f"Error: Demo '{demo_id}' not found. Choose 1, 2, or 3.")
+        sys.exit(1)
+
+    url = f"{COLAB_BASE}/notebooks/{target['name']}"
+    print(f"Opening: {target['title']}")
+    print(f"URL: {url}")
+
+    # Open in browser if possible
+    if sys.platform == "darwin":
+        subprocess.run(["open", url], check=False)
+    elif sys.platform.startswith("linux"):
+        subprocess.run(["xdg-open", url], check=False)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Manage and open Google Colab demo notebooks.")
+    subparsers = parser.add_subparsers(dest="command")
+
+    subparsers.add_parser("list", help="List all Colab notebooks with direct URLs")
+    p_open = subparsers.add_parser("open", help="Open a notebook in Google Colab")
+    p_open.add_argument("id", choices=["1", "2", "3"], help="Demo ID (1, 2, or 3)")
+    subparsers.add_parser("generate", help="Regenerate all notebooks from scripts/generate_notebooks.py")
+
+    args = parser.parse_args()
+
+    if args.command == "open":
+        open_demo(args.id)
+    elif args.command == "generate":
+        script = Path(__file__).resolve().parent.parent / "scripts" / "generate_notebooks.py"
+        subprocess.run([sys.executable, str(script)], check=True)
+    else:
+        list_demos()
+
+
+if __name__ == "__main__":
+    main()

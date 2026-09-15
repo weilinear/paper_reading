@@ -1,6 +1,26 @@
-# Scientific Paper PDF Reader (`pdf_reader.py`)
+# Scientific Paper Reading & Agent Research (`paper_reading`)
 
-A high-fidelity, layout-aware PDF reading and analysis tool powered by **Poppler** (`pdftotext`, `pdfinfo`, `pdftoppm`), engineered specifically for AI agents and researchers to read multi-column scientific papers (e.g., CVPR, ICCV, IEEE, ACM, NeurIPS, ICML, Nature, Science, arXiv) with 100% correct reading order.
+A unified suite for scientific paper reading, layout-aware multi-column parsing, and reproducible evaluations of agent architectures (Procedural Graphs, MemoryBank, ReAct, and multi-hop reasoning).
+
+---
+
+## Interactive Google Colab Demos
+
+All demos are hosted on Google Colab and can be launched directly in your browser with a single click:
+
+| Demo Notebook | Description | Launch in Colab |
+| :--- | :--- | :---: |
+| **01. Layout-Aware Paper Reader** | Two-column scientific paper reader, outline extraction & figure rendering (Poppler) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/weilinear/paper_reading/blob/main/notebooks/01_paper_reader_demo.ipynb) |
+| **02. Procedural Graphs on HotpotQA** | Multi-hop QA benchmark comparing Vanilla ReAct vs Procedural Graph (Mode 1 & Mode 5) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/weilinear/paper_reading/blob/main/notebooks/02_hotpotqa_procedural_graph.ipynb) |
+| **03. MemoryBank & Ebbinghaus Decay** | Interactive simulation of Ebbinghaus forgetting curves, spacing effect & SiliconFriend | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/weilinear/paper_reading/blob/main/notebooks/03_memory_bank_demo.ipynb) |
+
+You can also manage and open Colab demos from your terminal using the included CLI:
+```bash
+./bin/colab list        # List all available demos and their Colab links
+./bin/colab open 1      # Open Demo 1 directly in your browser
+./bin/colab open 2      # Open Demo 2 in your browser
+./bin/colab open 3      # Open Demo 3 in your browser
+```
 
 ---
 
