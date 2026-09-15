@@ -195,3 +195,21 @@ PG (Mode 1: Expert Prior)          | 100.00     | 100.00     | 3.00
 PG (Mode 5: Scratch + Evolution)   | 100.00     | 100.00     | 3.00     
 ====================================================================
 ```
+
+---
+
+## 7. Paper Reproduction: MemoryBank (Zhong et al., AAAI 2024)
+
+An implementation of the **MemoryBank** long-term memory mechanism under `memory_bank/`:
+- **Storage**: Dialogue log, hierarchical event summaries, and dynamic user personality portrait.
+- **Ebbinghaus Decay**: Retention modeled as $R = e^{-t / S}$ with the spacing effect ($S \leftarrow S + 1, t \leftarrow 0$ upon recall).
+- **Retrieval & Augmentation**: Semantic vector search combined with prompt assembly for AI companions (SiliconFriend).
+
+### Run the Interactive MemoryBank Walkthrough
+```bash
+# Run interactive multi-day demo
+./bin/demo-memory-bank
+
+# Or directly via Python
+python3 memory_bank/toy_demo.py
+```

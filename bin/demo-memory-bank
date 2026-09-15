@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+python3 "$(dirname "$0")/../memory_bank/toy_demo.py" "$@"
